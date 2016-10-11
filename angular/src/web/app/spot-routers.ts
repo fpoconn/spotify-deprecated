@@ -18,11 +18,13 @@ import {FollowedArtistsComponent} from "./mymusic/followed-artists.component";
 import {MyPlaylistsComponent} from "./mymusic/my-playlists.component";
 import {PlaylistComponent} from "./playlists/playlist.component";
 import {PlaylistComponentResolve} from "./services/playlist-component-resolve.service";
+import {PlaylistBuilderComponent} from "./playlists/playlist-builder.component";
 
 const spotRouters: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard], 
         children: [
             { path: 'searchResults/:str', component: SearchResultsComponent},
+            { path: 'playlistBuilder', component: PlaylistBuilderComponent},
             { path: 'artist/:id', component: ArtistComponent,
                 children: [
                     {path: '', redirectTo: 'tracks', pathMatch: 'full'},

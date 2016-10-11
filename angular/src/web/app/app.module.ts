@@ -31,6 +31,7 @@ import {CategoryListComponent} from "./playlists/categories-list.component";
 import {PlaylistComponentResolve} from "./services/playlist-component-resolve.service";
 import {PlaylistService} from "./services/playlist.service";
 import {PlaylistComponent} from "./playlists/playlist.component";
+import {PlaylistBuilderComponent} from "./playlists/playlist-builder.component";
 
 @NgModule({
     imports:      [ BrowserModule, routing ],
@@ -46,6 +47,7 @@ import {PlaylistComponent} from "./playlists/playlist.component";
         MyPlaylistsComponent,
         CategoryListComponent,
         FollowedArtistsComponent,
+        PlaylistBuilderComponent,
         SavedAlbumsComponent,
         SavedTracksComponent,
         MyTopItems,

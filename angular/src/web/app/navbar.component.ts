@@ -14,7 +14,8 @@ import {UserService} from "./services/user.service";
             
             <ul class="nav navbar-nav">
                <li [class.active]="selectedTab == 'myMusic'"><a routerLink="homeMyMusic" routerLinkActive="active" (click)="selectTab('myMusic')">My Music</a></li>
-                <li [class.active]="selectedTab == 'browse'"><a routerLink="homeBrowse" (click)="selectTab('browse')">Browse</a></li>
+               <li [class.active]="selectedTab == 'browse'"><a routerLink="homeBrowse" (click)="selectTab('browse')">Browse</a></li>
+               <li [class.active]="selectedTab == 'playlistBuilder'"><a routerLink="playlistBuilder" (click)="selectTab('playlistBuilder')">Playlist Builder</a></li>
             </ul>
             
             <p *ngIf="user" class="navbar-text navbar-right"><span class="glyphicon glyphicon-user"></span><a href="#" class="navbar-link">  {{user.id}}</a></p>
