@@ -47,4 +47,32 @@ export class PlaylistService {
         }
 
     }
+
+    addTrack(playlistId: string, userId: string, trackURI: string){
+
+        var headers = this.getHeaders();
+        
+        if(headers) {
+
+            return this._http.post('https://api.spotify.com/v1/users/' + userId + '/playlists/' + playlistId + '/tracks?uris='
+                + trackURI.replace(/:/g, '%3A') + '&position=0', null, {headers: headers})
+                .map(res => res.json());
+        }
+
+    }
+
+    removeTrack(playlistId: string, userId: string, trackData: string){
+
+        var headers = this.getHeaders();
+
+        if(headers) {
+
+            headers.append('Content-Type', 'application/json');
+
+            return this._http.delete('https://api.spotify.com/v1/users/' + userId + '/playlists/' + playlistId + '/tracks',
+                {headers: headers, body: trackData})
+                .map(res => res.json());
+        }
+
+    }
 }

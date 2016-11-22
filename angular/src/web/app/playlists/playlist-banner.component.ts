@@ -7,10 +7,10 @@ import {Router} from '@angular/router';
     <div *ngIf="playlist" (click)="showPlaylist()">
     
           <div *ngIf="playlist.images[0]">
-            <img width="175" height="auto" *ngIf="playlist.images[0].url" src="{{playlist.images[0].url}}"/>
+            <img width="140" height="auto" *ngIf="playlist.images[0].url" src="{{playlist.images[0].url}}"/>
           </div>  
           <div *ngIf="playlist.tracks">
-            <h1>{{playlist.name}}</h1>
+            <h2>{{playlist.name}}</h2>
             <p>{{description}}</p>
             <p>{{playlist.tracks.total}} tracks</p>
            </div>

@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
           </div>  
         
         <h5 style="margin-bottom: 0px;">{{album.name}}</h5>
-        <h6>{{album.release_date}}</h6>
+        <h6 style="margin-top: 3px;">{{album.release_date}}</h6>
   </div>
 `
 })

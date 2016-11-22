@@ -55,9 +55,6 @@ export class UserService {
         var headers = this.getHeaders();
 
         if(headers) {
-         // return this._http.get('https://api.spotify.com/v1/users/spotifydiscover/playlists/6ssf5QLqYVoxgPj9Hs8soK', {headers: headers})
-          //  return this._http.get('https://api.spotify.com/v1/users/spotify/playlists', {headers: headers})
-          //return this._http.get('https://api.spotify.com/v1/users/fpoconnell/playlists', {headers: headers})
             return this._http.get('https://api.spotify.com/v1/me/playlists', {headers: headers})
                 .map(res => res.json());
         }

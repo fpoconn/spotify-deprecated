@@ -19,12 +19,22 @@ import {MyPlaylistsComponent} from "./mymusic/my-playlists.component";
 import {PlaylistComponent} from "./playlists/playlist.component";
 import {PlaylistComponentResolve} from "./services/playlist-component-resolve.service";
 import {PlaylistBuilderComponent} from "./playlists/playlist-builder.component";
+import {BuilderSearchTracks} from "./builder/builder-search-tracks.component";
+import {BuilderSearchPlaylists} from "./builder/builder-search-playlists.component";
+import {BuilderRecommendations} from "./builder/builder-recommendations.component";
 
 const spotRouters: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard], 
         children: [
             { path: 'searchResults/:str', component: SearchResultsComponent},
-            { path: 'playlistBuilder', component: PlaylistBuilderComponent},
+            { path: 'playlistBuilder', component: PlaylistBuilderComponent,
+                children: [
+                    {path: '', redirectTo: 'builderTracks', pathMatch: 'full'},
+                    {path: 'builderTracks', component: BuilderSearchTracks},
+                    {path: 'builderPlaylists', component: BuilderSearchPlaylists},
+                    {path: 'builderRecommendations', component: BuilderRecommendations}
+                ]
+            },
             { path: 'artist/:id', component: ArtistComponent,
                 children: [
                     {path: '', redirectTo: 'tracks', pathMatch: 'full'},

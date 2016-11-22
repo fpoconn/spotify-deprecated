@@ -97,7 +97,7 @@ export class SearchResultsComponent implements OnInit {
             .map(params => params['str'])
             .flatMap(str => {
                 this.searchString = str;
-                return this._searchService.search(str,20);
+                return this._searchService.search(str, null, 20);
             })
             .subscribe(
                 res => {
@@ -141,7 +141,7 @@ export class SearchResultsComponent implements OnInit {
         if(resEvent.s) {
 
 
-            this._searchService.search(resEvent.s, 20)
+            this._searchService.search(resEvent.s, null, 20)
                 .subscribe(
                     res => {
                     this.searchResults = res;

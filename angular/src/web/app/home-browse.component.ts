@@ -13,8 +13,13 @@ import {PlaylistBannerComponent} from "./playlists/playlist-banner.component";
         <spot-categories-list [categories]="categories"></spot-categories-list>
     </div>
     <div>
-        <div *ngIf="discoverPlaylist">
-            <spot-playlist-banner [playlist]="discoverPlaylist" [description]="discoverDescription"></spot-playlist-banner>
+        <div style="display: flex; flex-direction: row">
+            <div *ngIf="discoverPlaylist">
+                <spot-playlist-banner [playlist]="discoverPlaylist" [description]="discoverDescription"></spot-playlist-banner>
+            </div>
+            <div *ngIf="releaseRadarPlaylist">
+                <spot-playlist-banner [playlist]="releaseRadarPlaylist" [description]="releaseRadarDescription"></spot-playlist-banner>
+            </div>
         </div>
         <div *ngIf="featuredPlaylists">
              <h4>{{featuredMessage}}</h4>
@@ -43,6 +48,11 @@ export class HomeBrowseComponent implements OnInit {
     discoverDescription: string = "Your weekly mixtape of fresh music.  " +
         "Enjoy new discoveries and deep cuts chosen just " +
         "for you.  Updated every Monday, so save your favourites!";
+
+    releaseRadarPlaylist: any;
+    releaseRadarDescription: string = "Never miss a new release!  " +
+        "Catch all the latest music from artists you care about, " +
+        "plus new singles picked just for you.  Updates every Friday.";
 
     constructor(private _browseService: BrowseService, private _userService: UserService) {}
 
@@ -76,6 +86,7 @@ export class HomeBrowseComponent implements OnInit {
         this._userService.myPlaylists().subscribe(
             res => {
                 this.discoverPlaylist = res.items.find(item => item.owner.id === "spotifydiscover");
+                this.releaseRadarPlaylist = res.items.find(item => item.owner.id === "spotify");
             },
             err => console.log("error: " + err),
             () => console.log("Discover playlist loaded ")

@@ -4,8 +4,20 @@ html{
 body{
     height: 100%;
 }
+div.no-wrap-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+div.builderTab {
+    padding-left: 15px;
+    padding-right: 35px;
+}
+h3.smallTopMargin {
+    margin-top: 10.5px;
+}
 spot-home > :last-child {
-    padding-top: 86px;
+    padding-top: 70px;
 }
 spot-artist-tile.large-tile > :first-child,
 spot-artist-results.large-tile > :first-child,
@@ -120,6 +132,7 @@ spot-search-field > input {
 
 spot-results  {
     display: flex;
+    margin-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -178,6 +191,7 @@ spot-browse > :last-child {
     flex: 0 1 100%;
     margin-left: 10px;
     padding-left: 10px;
+    padding-top: 15px;
 }
 h5.white-overlay {
     position: relative;
@@ -288,4 +302,199 @@ spot-artist-list.horizontal:hover > :first-child {
     overflow-x: auto;
     padding-bottom: 0px;
     margin-bottom: 15px;
+}
+
+spot-playlist-builder {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 100%;
+}
+spot-playlist-builder > :first-child {
+    flex: 0 0 300px;
+    overflow: hidden;
+    background: linear-gradient( rgba(232, 232, 232, 0.81), white);
+}
+spot-playlist-builder > :nth-child(2) {
+    flex: 1 0 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 15px;
+    border-right: lightgray;
+    border-right-style: solid;
+    border-right-width: 1px;
+    overflow: hidden;
+    align-self: stretch;
+}
+spot-playlist-builder > :nth-child(2):hover {
+    overflow-y: scroll;
+}
+
+spot-playlist-builder > :nth-child(2) > :last-child {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 7px;
+}
+.drag-over {
+    border-style: solid;
+    border-color: #2780e3;
+    border-width: 2px;
+    background: rgba(232, 232, 232, 0.81);
+}
+
+spot-playlist-builder > :last-child{
+    flex: 0 0 500px;
+    overflow-y: scroll;
+}
+spot-playlist-builder > :last-child table {
+    margin-top: 10px;
+}
+spot-playlist-builder > * {
+    padding-top: 15px;
+}
+
+builder-recommendations > :first-child {
+    margin-top: 15px;
+}
+builder-recommendations > :first-child > :first-child.empty {
+    border: dashed;
+    border-color: darkgray;
+    padding: 10px;
+    text-align: center;
+}
+
+tr.clickable {
+    cursor: pointer;
+}
+.clickable:focus {
+    outline: 0;
+}
+.clickable:hover, .clickable.focused {
+    background-color: #ddf4fb !important;
+}
+
+.selected .link, .clickable:active .link {
+    color: #ffffff;
+}
+.selected, .clickable:active, .selected:active, .selected:hover, .selected:focus {
+    color: #ffffff !important;
+    background-color: #84bced !important;
+}
+
+[draggable]:hover {
+    cursor: move;
+    border: solid;
+    border-color: #2780e3;
+    border-width: 1px;
+    background: rgba(232, 232, 232, 0.81);
+    margin-top: -1px;
+    margin-bottom: 0px;
+}
+track-info{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    padding: 3px;
+}
+track-info > :first-child {
+    width: 100%;
+}
+track-info > :first-child > :first-child {
+    display: flex;
+    flex-direction: row;
+}
+track-info:hover > :first-child > :first-child > * > span.previewTrack {
+      visibility: visible;
+      border-radius: 50%;
+      color: green;
+  }
+track-info > :first-child > :nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+track-info > :first-child > :nth-child(2) > :first-child {
+    flex: 1 0 auto;
+    margin-right: 15px;
+    font-weight: 200
+}
+track-info > :first-child > :nth-child(2) > :last-child {
+    align-self: flex-end;
+    font-weight: 100;
+}
+
+div.includeRemove,
+td.includeRemove {
+    position: relative;
+    margin-bottom: 3px;
+}
+div.includeRemove{
+    padding-bottom: 0px;
+}
+div.includeRemove:hover,
+td.includeRemove:hover {
+    background: rgba(232, 232, 232, 0.81);
+}
+div.includeRemove:hover > span.removePlaylist,
+td.includeRemove:hover > span.removePlaylist {
+    visibility: visible;
+    border-radius: 50%;
+    font-size: 22px;
+    color: red;
+}
+
+div.builderFormItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+div.builderFormItem > :first-child {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
+div.builderFormItem > :nth-child(2){
+    width: 105px;
+}
+div.builderFormItem > :last-child {
+    height: 30px;
+    padding: 2px;
+    width: 50px
+}
+
+span.removePlaylist {
+    visibility: hidden;
+    position: absolute;
+    background: white;
+    top: -5px;
+    right: -5px;
+}
+span.removePlaylist:hover{
+    cursor: pointer;
+}
+
+span.previewTrack {
+    visibility: hidden;
+    background: white;
+    font-size:20px;
+}
+span.previewTrack:hover{
+    cursor: pointer;
+}
+
+span.pauseTrack {
+    background: white;
+    padding: 3px;
+    margin-bottom:2px;
+}
+span.pauseTrack:hover{
+    cursor: pointer;
+}
+nav-pills:hover {
+    cursor: pointer;
 }

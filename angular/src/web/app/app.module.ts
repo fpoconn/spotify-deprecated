@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_PROVIDERS} from  '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import {HomeComponent} from "./home.component";
@@ -32,9 +33,14 @@ import {PlaylistComponentResolve} from "./services/playlist-component-resolve.se
 import {PlaylistService} from "./services/playlist.service";
 import {PlaylistComponent} from "./playlists/playlist.component";
 import {PlaylistBuilderComponent} from "./playlists/playlist-builder.component";
+import {BuilderSearchTracks} from "./builder/builder-search-tracks.component";
+import {BuilderSearchPlaylists} from "./builder/builder-search-playlists.component";
+import {BuilderRecommendations} from "./builder/builder-recommendations.component";
+import {TrackInfo} from "./builder/track-info.component";
+import {SearchService} from "./services/search.service";
 
 @NgModule({
-    imports:      [ BrowserModule, routing ],
+    imports:      [ BrowserModule, FormsModule, routing ],
     declarations: [
         AppComponent,
         HomeComponent,
@@ -48,6 +54,10 @@ import {PlaylistBuilderComponent} from "./playlists/playlist-builder.component";
         CategoryListComponent,
         FollowedArtistsComponent,
         PlaylistBuilderComponent,
+        BuilderSearchTracks,
+        BuilderSearchPlaylists,
+        BuilderRecommendations,
+        TrackInfo,
         SavedAlbumsComponent,
         SavedTracksComponent,
         MyTopItems,
@@ -65,6 +75,7 @@ import {PlaylistBuilderComponent} from "./playlists/playlist-builder.component";
         UserService,
         BrowseService,
         PlaylistService,
+        SearchService,
         ArtistComponentResolve, 
         AlbumComponentResolve, 
         PlaylistComponentResolve,
